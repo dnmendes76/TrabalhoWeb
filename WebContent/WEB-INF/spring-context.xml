@@ -33,11 +33,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!--
 	<mvc:interceptors>
 		<bean class = "br.ufc.interceptor.AutorizadorInterceptor"></bean>
-	</mvc:interceptors>
-
-	
-	<bean id="FuncionarioDAOMemory" class="br.ufc.dao.FuncionarioDAOMemory"></bean>
-	<bean id="FuncionarioDAOHibernate" class="br.ufc.dao.FuncionarioDAOHibernate"></bean> -->	
+	</mvc:interceptors> -->	
 
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

@@ -7,9 +7,16 @@
     <persistence-unit name="teste_aula_cc" >
        	<provider>org.hibernate.ejb.HibernatePersistence</provider>
        	
-       	<!--  
-       	<class>br.ufc.model.Aluno</class>
-       	<class>br.ufc.model.Funcionario</class> -->
+       	 
+       	<class>br.ufc.model.Classificado</class>
+       	<class>br.ufc.model.Comentario</class>
+       	<class>br.ufc.model.Noticia</class>
+       	<class>br.ufc.model.Papel</class>
+       	<class>br.ufc.model.Secao</class>
+       	<class>br.ufc.model.Usuario</class>
+       	
+       	<!-- 
+       	    	<class>br.ufc.model.Funcionario</class> -->
        	
         <!-- <class>br.ufc.sistema.Order</class>
         <class>br.ufc.sistema.Invoice</class>
@@ -17,11 +24,11 @@
          
  
         <properties>
-        <!--
+        
 			<property name="javax.persisteence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/java_web_cc" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jornal" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="" /> -->
+			<property name="javax.persistence.jdbc.password" value="" /> 
 			<!-- propriedades do hibernate -->
 			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

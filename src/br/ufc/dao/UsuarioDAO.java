@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import criptografia.Criptografia;
 import br.ufc.model.Usuario;
 
 @Repository
@@ -19,6 +20,8 @@ public class UsuarioDAO {
 	private EntityManager manager;
 	
 	public void inserir(Usuario user){
+		Criptografia cript = new Criptografia();
+		user.setSenha(cript.codifica(user.getSenha()));
 		manager.persist(user);		
 	}
 	

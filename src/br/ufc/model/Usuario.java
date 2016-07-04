@@ -9,12 +9,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 
 
 @Entity
@@ -24,7 +23,7 @@ public class Usuario {
 	@Id
 	@Column(name = "id_usuario", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_usuario;
 	private String nome;
 	@NotNull
 	private String login;
@@ -51,24 +50,19 @@ public class Usuario {
 			fetch = FetchType.LAZY)
 	private List<Noticia> noticias;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "papel",
-			joinColumns = @JoinColumn(name="id_usuario" ,
-								referencedColumnName = "id_usuario"),
-			inverseJoinColumns = @JoinColumn(name = "id_papel",
-										referencedColumnName = "id_papel")
-	)
+	@ManyToMany (fetch = FetchType.LAZY)
 	private List<Papel> papeis;
 
 	//  ** GET'S and SET'S **	
-	public long getId() {
-		return id;
+	
+	public long getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId_usuario(long id_usuario) {
+		this.id_usuario = id_usuario;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}

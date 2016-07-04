@@ -29,10 +29,13 @@ public class UsuarioController {
 	
 	@RequestMapping("inserirUsuario")
 	public String InserirUsuario(Usuario user, Papel paper){
-		Papel p = paperDAO.buscar(paper.getId());
+		Papel p = paperDAO.buscar(paper.getId_papel());
 		List<Papel> papeis = new ArrayList<Papel>();
 		papeis.add(p);
 		user.setPapeis(papeis);
+		
+		System.out.println(user.getNome());
+		System.out.println(p.getPapel());
 
 		this.userDAO.inserir(user);
 		

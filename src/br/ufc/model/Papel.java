@@ -1,13 +1,13 @@
 package br.ufc.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -19,21 +19,23 @@ public class Papel {
 	@Id
 	@Column(name = "id_papel", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_papel;
 	@NotNull
 	private String papel;
 	
-	@ManyToMany(mappedBy = "papeis",
-			fetch= FetchType.LAZY)
-	private List<Usuario> usuarios;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="USUARIO_PAPEL",
+			   joinColumns = @JoinColumn(name="id_papel", referencedColumnName="id_papel")
+			)
 
 	//  ** GET'S and SET'S **
-	public long getId() {
-		return id;
+	
+	public long getId_papel() {
+		return id_papel;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId_papel(long id_papel) {
+		this.id_papel = id_papel;
 	}
 
 	public String getPapel() {
@@ -44,13 +46,13 @@ public class Papel {
 		this.papel = papel;
 	}
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
+//	public List<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//
+//	public void setUsuarios(List<Usuario> usuarios) {
+//		this.usuarios = usuarios;
+//	}
 
 	
 	

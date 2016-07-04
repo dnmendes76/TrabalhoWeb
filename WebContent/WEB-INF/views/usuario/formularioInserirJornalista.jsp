@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inserir Leitor</title>
+<title>Inserir Jornalista</title>
 </head>
 <body>
 
-	<h1>Inserir Leitor</h1>
+	<h1>Inserir Jornalista</h1>
 	
 	<form action="inserirUsuario" method="post">
 	
@@ -18,7 +18,7 @@
 		Login: <input type="text" name="login"/> <br>
 		Senha: <input type="text" name="senha"/> <br>
 		
-		<input type="hidden" name="id_papel" value="1">
+		<input type="hidden" name="id_papel" value="2">
 		
 		<input type="submit" value="ENVIAR"/>
 		

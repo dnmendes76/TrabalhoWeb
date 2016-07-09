@@ -4,15 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu Admin</title>
+<title>Inserir Secao</title>
 </head>
 <body>
 
-	<h1>Bem vindo, ${user_logado.nome}</h1>
-	
-	<h2>
-	<a href=""> Cadastrar Editor</a> <br>
-	</h2>
-	
+	<form  action="inserirSecao" method="post">
+		Título:<br /> <input type="text" name="titulo" /> <br />
+		Descrição:<br /> <textarea name="descricao" id="mensagem"></textarea><br />
+		
+		<input type="submit" value="Enviar" /> <br />
+	</form>
+
 </body>
 </html>

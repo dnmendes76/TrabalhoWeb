@@ -36,8 +36,8 @@ public class UsuarioDAO {
 	
 	public Usuario buscar(long id){
 		Usuario aux = manager.find(Usuario.class, id);
-		Criptografia cript = new Criptografia();
-		aux.setSenha(cript.decodifica(aux.getSenha()));
+//		Criptografia cript = new Criptografia();
+//		aux.setSenha(cript.decodifica(aux.getSenha()));
 		return aux;
 	}
 	
@@ -53,8 +53,8 @@ public class UsuarioDAO {
 		
 		if(usuarios.size() != 0){
 			Usuario aux = usuarios.get(0);
-			Criptografia cript = new Criptografia();
-			aux.setSenha(cript.decodifica(aux.getSenha()));
+//			Criptografia cript = new Criptografia();
+//			aux.setSenha(cript.decodifica(aux.getSenha()));
 			return aux;
 		}
 		return null;

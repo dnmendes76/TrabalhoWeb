@@ -4,15 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu Admin</title>
+<title>Inserir Classificado</title>
 </head>
 <body>
 
-	<h1>Bem vindo, ${user_logado.nome}</h1>
-	
-	<h2>
-	<a href=""> Cadastrar Editor</a> <br>
-	</h2>
-	
 </body>
 </html>

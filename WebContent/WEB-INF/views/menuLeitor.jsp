@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu Admin</title>
+<title>Menu Leitor</title>
 </head>
 <body>
-
 	<h1>Bem vindo, ${user_logado.nome}</h1>
 	
 	<h2>
-	<a href=""> Cadastrar Editor</a> <br>
+	<a href=""> Inserir comentário de notícia</a> <br>
+	<a href=""> Inserir oferta de compra</a> <br>
+	<a href="logout"> SAIR </a>
 	</h2>
+	
 	
 </body>
 </html>

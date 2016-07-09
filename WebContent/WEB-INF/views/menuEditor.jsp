@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu Admin</title>
+<title>Menu Editor</title>
 </head>
 <body>
 
 	<h1>Bem vindo, ${user_logado.nome}</h1>
 	
 	<h2>
-	<a href=""> Cadastrar Editor</a> <br>
+	<a href="formularioInserirJornalista"> Cadastrar Jornalista</a> <br>
+	<a href=""> Cadastrar Classificado</a> <br>
+	<a href=""> Cadastrar Seção</a> <br>
+	<a href=""> Apagar Notícia</a> <br>
+	<a href="logout"> SAIR </a>
 	</h2>
 	
 </body>

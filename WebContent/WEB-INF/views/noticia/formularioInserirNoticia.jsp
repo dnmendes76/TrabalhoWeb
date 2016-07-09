@@ -16,7 +16,7 @@
 		Subtítulo: <br /><input type="text" name="subtitulo" /> <br/>	
 		
 		<select name="id_secao" >
-			<c:forEach var="secao" items = "${categoriaNoticias}">
+			<c:forEach var="secao" items = "${categoria}">
 				<option value=" ${secao.id_secao} ">${secao.titulo}</option>
 			</c:forEach>
 		</select> <br />		

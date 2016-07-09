@@ -1,12 +1,20 @@
 package br.ufc.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import criptografia.Criptografia;
+import br.ufc.dao.PapelDAO;
 import br.ufc.dao.UsuarioDAO;
+import br.ufc.model.Papel;
 import br.ufc.model.Usuario;
 
 @Controller
@@ -15,24 +23,40 @@ public class LoginController {
 	@Autowired
 	private UsuarioDAO userDAO;
 	
+	@Autowired
+	private PapelDAO pdao;
+	
 	@RequestMapping("loginFormulario")
-	public String loginFormulario(){
+	public String loginFormulario( Model model){
+		
+		List<Papel> papeis = pdao.listar();
+//		System.out.println(papeis.get(1).getPapel());
+		model.addAttribute("papeis", papeis);
 		return "login/loginFormulario";
 	}
 	
-	@RequestMapping("login")
-	public String login(HttpSession session, Usuario user){
-		
-//		System.out.println(user.getNome());
+	@RequestMapping(value = "login", method= RequestMethod.POST)
+	public String login(HttpSession session, Usuario user, @RequestParam int papel){
+//		System.out.println(papel);
 //		System.out.println(user.getLogin());
 		
 		Usuario aux = this.userDAO.recuperar(user.getLogin());
-			
+		Criptografia crip = new Criptografia();
+		
 		if (aux != null){
-			if(aux.getSenha().equals(user.getSenha())){
+			if(aux.getSenha().equals(crip.codifica(user.getSenha()))){
 				
 				session.setAttribute("user_logado", aux);
-				return "menu";
+				
+				if (papel == 1){
+					return "menuLeitor";
+				}
+				else if (papel == 2){
+					return "menuJornalista";
+				}
+				else if (papel == 3){
+					return "menuEditor";
+				}				
 			}
 		}
 		

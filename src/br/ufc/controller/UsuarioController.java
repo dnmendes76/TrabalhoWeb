@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,16 @@ import br.ufc.model.Usuario;
 public class UsuarioController {
 	
 	@Autowired
+//	@Qualifier(value="usuarioDAO")
 	private UsuarioDAO userDAO;
+	
 	@Autowired
 	private PapelDAO paperDAO;
+	
+	@RequestMapping("formularioInserirJornalista")
+	public String formularioInserirJornalista(){
+		return "usuario/formularioInserirJornalista";
+	}
 	
 	@RequestMapping("formularioInserirLeitor")
 	public String formularioInserirLeitor(){
@@ -34,12 +42,14 @@ public class UsuarioController {
 		papeis.add(p);
 		user.setPapeis(papeis);
 		
-		System.out.println(user.getNome());
-		System.out.println(p.getPapel());
+//		System.out.println(user.getNome());
+//		System.out.println(p.getPapel());
 
 		this.userDAO.inserir(user);
 		
 		return "usuario/usuarioInseridoOK";
 	}
+	
+	
 
 }

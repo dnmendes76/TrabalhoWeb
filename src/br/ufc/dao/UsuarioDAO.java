@@ -35,21 +35,27 @@ public class UsuarioDAO {
 	}
 	
 	public Usuario buscar(long id){
-		return manager.find(Usuario.class, id);
+		Usuario aux = manager.find(Usuario.class, id);
+		Criptografia cript = new Criptografia();
+		aux.setSenha(cript.decodifica(aux.getSenha()));
+		return aux;
 	}
 	
 	public List<Usuario> listar(){
-		String hql = "select a from usuario as a";
+		String hql = "select u from usuario as u";
 		return manager.createQuery(hql, Usuario.class).getResultList();
 	}
 	
 	public Usuario recuperar(String login){
-		String hql = "select a from usuario as a where a.login = :paramLogin";
+		String hql = "select u from usuario as u where u.login = :paramLogin";
 		Query query = manager.createQuery(hql);
 		List<Usuario> usuarios = query.setParameter("paramLogin", login).getResultList();
 		
 		if(usuarios.size() != 0){
-			return usuarios.get(0);
+			Usuario aux = usuarios.get(0);
+			Criptografia cript = new Criptografia();
+			aux.setSenha(cript.decodifica(aux.getSenha()));
+			return aux;
 		}
 		return null;
 	}

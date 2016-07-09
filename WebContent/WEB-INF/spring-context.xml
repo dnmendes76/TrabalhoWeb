@@ -26,6 +26,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="maxUploadSize" value="500000"></property>
 	</bean>
 	
+	<bean id="usuarioDAO" class="br.ufc.dao.UsuarioDAO"></bean>
+	
 	<!-- Atencao tirar comentario 
 	<bean id="AlunoDAOMemory" class="br.ufc.dao.AlunoDAOMemory"></bean>
 	<bean id="AlunoDAOHibernate" class="br.ufc.dao.AlunoDAOHibernate"></bean> -->	

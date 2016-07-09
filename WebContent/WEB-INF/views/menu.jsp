@@ -4,18 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Jornal</title>
+<title>Menu</title>
 </head>
 <body>
 
-	<h1>Jornal</h1> <br>
-	<h2>
-	<a href=""> Visualizar Manchetes por Seção</a> <br>
-	<a href=""> Ler Notícias</a> <br>
-	<a href=""> Visualizar Classificados</a> <br>
-	<a href="loginFormulario"> Login</a> <br>
-	<a href="formularioInserirLeitor"> Cadastre-se</a> <br>
-	</h2>
+	<h1>Bem vindo, ${user_logado.nome}</h1>
+	
+	<h2><a href="formularioInserirNoticia"> Cadastrar noticia</a> <br>	</h2>
+	<h2><a href="logout"> SAIR </a> </h2>
 
 </body>
 </html>

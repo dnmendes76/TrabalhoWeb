@@ -40,11 +40,22 @@ public class LoginController {
 //		System.out.println(papel);
 //		System.out.println(user.getLogin());
 		
+		boolean flag = false;
+		
 		Usuario aux = this.userDAO.recuperar(user.getLogin());
 		Criptografia crip = new Criptografia();
 		
+		
 		if (aux != null){
-			if(aux.getSenha().equals(crip.codifica(user.getSenha()))){
+			
+			for (Papel i : aux.getPapeis()) {
+				if(i.getPapel().equals(pdao.buscar(papel).getPapel())){
+					flag = true;
+					break;
+				}
+			}
+			
+			if(aux.getSenha().equals(crip.codifica(user.getSenha())) && flag){
 				
 				session.setAttribute("user_logado", aux);
 				

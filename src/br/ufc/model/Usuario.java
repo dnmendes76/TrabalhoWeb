@@ -32,21 +32,21 @@ public class Usuario {
 
 	@OneToMany(mappedBy = "autor",
 			targetEntity = Classificado.class,
-			fetch = FetchType.LAZY)
+			fetch = FetchType.EAGER)
 	private List<Classificado> classificados;
 	
 	@OneToMany(mappedBy = "autor",
 			targetEntity = Comentario.class,
-			fetch = FetchType.LAZY,
+			fetch = FetchType.EAGER,
 			cascade = CascadeType.ALL)
 	private List<Comentario> comentarios;
 	
 	@OneToMany(mappedBy = "autor",
 			targetEntity = Noticia.class,
-			fetch = FetchType.LAZY)
+			fetch = FetchType.EAGER)
 	private List<Noticia> noticias;
 	
-	@ManyToMany (fetch = FetchType.LAZY)
+	@ManyToMany (fetch = FetchType.EAGER)
 	private List<Papel> papeis;
 
 	//  ** GET'S and SET'S **	

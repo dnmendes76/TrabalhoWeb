@@ -21,14 +21,14 @@ public class Comentario {
 	@NotNull
 	private String texto;
 	
-	@ManyToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.EAGER,
 			optional = false, 
 			cascade = CascadeType.ALL)
 	@JoinColumn ( name = "id_autor",
 			referencedColumnName = "id_usuario")
 	private Usuario autor;
 	
-	@ManyToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.EAGER,
 			optional = false, 
 			cascade = CascadeType.ALL)
 	@JoinColumn ( name = "id_noticia",

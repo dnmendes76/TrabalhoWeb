@@ -17,6 +17,10 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:component-scan base-package="br.ufc.controller" />
 	<mvc:annotation-driven />
 	
+	<mvc:interceptors>
+		<bean class="br.ufc.interceptor.AutorizadorInterceptor"/>
+	</mvc:interceptors>
+	
 	<!-- assim o spring enxerga a pasta resources e seus arqquivos -->
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	
@@ -26,7 +30,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="maxUploadSize" value="500000"></property>
 	</bean>
 	
-	<bean id="usuarioDAO" class="br.ufc.dao.UsuarioDAO"></bean>
+	<!-- <bean id="usuarioDAO" class="br.ufc.dao.UsuarioDAO"></bean> -->
 	
 	<!-- Atencao tirar comentario 
 	<bean id="AlunoDAOMemory" class="br.ufc.dao.AlunoDAOMemory"></bean>

@@ -29,7 +29,7 @@ public class Classificado {
 	private float melhorOferta;
 	private Date dataOferta;
 	
-	@ManyToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.EAGER,
 			optional = true)
 	@JoinColumn ( name = "id_autor",
 			referencedColumnName = "id_usuario")	

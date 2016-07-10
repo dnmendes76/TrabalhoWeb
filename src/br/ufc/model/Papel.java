@@ -21,7 +21,7 @@ public class Papel {
 	@NotNull
 	private String papel;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="USUARIO_PAPEL",
 			   joinColumns = @JoinColumn(name="id_papel", referencedColumnName="id_papel")
 			)

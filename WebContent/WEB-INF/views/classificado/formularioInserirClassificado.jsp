@@ -8,5 +8,21 @@
 </head>
 <body>
 
+	<h1>Inserir Classificado</h1>
+	
+	<form action="inserirClassificado" method="post">
+	
+		Título   :<input type="text" name="titulo"><br> 
+		Texto    :<input type="text" name="texto"><br>
+		Telefone :<input type="text" name="telefone"><br>
+		Preço    :<input type="text" name="preco"><br>
+		
+				  <input  type="hidden" name="melhorOferta" value="0.0"><br>
+		
+		<input type="submit" value="ENVIAR"/>
+		
+	
+	</form>	
+
 </body>
 </html>

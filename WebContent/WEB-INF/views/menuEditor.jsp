@@ -12,8 +12,8 @@
 	
 	<h2>
 	<a href="formularioInserirJornalista"> Cadastrar Jornalista</a> <br>
-	<a href=""> Cadastrar Classificado</a> <br>
-	<a href=""> Cadastrar Seção</a> <br>
+	<a href="formularioInserirClassificado"> Cadastrar Classificado</a> <br>
+	<a href="formularioInserirSecao"> Cadastrar Seção</a> <br>
 	<a href=""> Apagar Notícia</a> <br>
 	<a href="logout"> SAIR </a>
 	</h2>

@@ -21,7 +21,7 @@ public class Noticia {
 	@Id
 	@Column(name = "id_noticia", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_noticia;
 	@NotNull
 	private String titulo;
 	private String subtitulo;
@@ -33,13 +33,13 @@ public class Noticia {
 	// @Column(name = "path", nullable=false)
 	// private String pathImage;
 	
-	@ManyToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.EAGER,
 			optional = false)
 	@JoinColumn ( name = "id_autor",
 			referencedColumnName = "id_usuario")
 	private Usuario autor;
 	
-	@ManyToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.EAGER,
 			optional = false)
 	@JoinColumn ( name = "id_secao",
 			referencedColumnName = "id_secao")
@@ -51,13 +51,6 @@ public class Noticia {
 	private List<Comentario> comentarios;
 
 	//   ** GET'S and SET'S **	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -113,6 +106,14 @@ public class Noticia {
 
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
+	}
+
+	public long getId_noticia() {
+		return id_noticia;
+	}
+
+	public void setId_noticia(long id_noticia) {
+		this.id_noticia = id_noticia;
 	}
 	
 

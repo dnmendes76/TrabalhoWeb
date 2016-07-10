@@ -17,7 +17,7 @@ public class Secao {
 	@Id
 	@Column(name = "id_secao", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_secao;
 	@NotNull
 	private String titulo;
 	private String descricao;
@@ -28,13 +28,6 @@ public class Secao {
 	private List<Noticia> noticias;
 
 	//  ** GET'S and SET'S **
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -58,6 +51,14 @@ public class Secao {
 
 	public void setNoticias(List<Noticia> noticias) {
 		this.noticias = noticias;
+	}
+
+	public long getId_secao() {
+		return id_secao;
+	}
+
+	public void setId_secao(long id_secao) {
+		this.id_secao = id_secao;
 	}
 	
 	

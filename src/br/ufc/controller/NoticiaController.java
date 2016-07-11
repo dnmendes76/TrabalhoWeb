@@ -54,4 +54,35 @@ public class NoticiaController {
 		return "noticia/noticiaInseridaOK";
 	}
 	
+	@RequestMapping("lerNoticia")
+	public String noticiaDetalhes(Noticia noticia, Model model){
+		
+		Noticia aux = ndao.buscar(noticia.getId_noticia());
+		model.addAttribute("noticia", aux);
+		model.addAttribute("comentarios", aux.getComentarios());
+		
+		System.out.println(aux.getTitulo() +" coments "+ aux.getComentarios().size());
+		
+		return "noticia/noticiaDetalhes";
+	}	
+	
+	@RequestMapping("listarNoticias")
+	public String listarNoticias(HttpSession session, Model model){
+		
+		Usuario user = (Usuario) session.getAttribute("user_logado");
+
+		List<Noticia> lista = ndao.listar();
+		model.addAttribute("noticias", lista);
+		
+		return "noticia/listarNoticias";
+	}
+	
+	@RequestMapping("apagarNoticia")
+	public String apagarNoticia(Noticia noticia){
+		
+		ndao.deletar(noticia.getId_noticia());
+		
+		return"redirect:listarNoticias";
+	}
+	
 }

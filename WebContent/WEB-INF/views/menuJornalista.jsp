@@ -11,6 +11,7 @@
 	<h1>Bem vindo, ${user_logado.nome}</h1>
 	
 	<h2><a href="formularioInserirNoticia"> Cadastrar noticia</a> <br>	</h2>
+	<h2><a href="listarNoticias"> Apagar noticia</a> <br>	</h2>
 	<h2><a href="logout"> SAIR </a> </h2>
 
 </body>

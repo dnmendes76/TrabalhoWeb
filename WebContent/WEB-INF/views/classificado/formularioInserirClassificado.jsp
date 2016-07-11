@@ -17,8 +17,6 @@
 		Telefone :<input type="text" name="telefone"><br>
 		Preço    :<input type="text" name="preco"><br>
 		
-				  <input  type="hidden" name="melhorOferta" value="0.0"><br>
-		
 		<input type="submit" value="ENVIAR"/>
 		
 	

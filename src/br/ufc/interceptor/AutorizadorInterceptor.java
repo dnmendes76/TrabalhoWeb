@@ -26,7 +26,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 		
 		if (uri.endsWith("/") || uri.endsWith("loginFormulario") || uri.endsWith("login") ||
 			uri.endsWith("formularioInserirLeitor") || uri.endsWith("lerNoticia") ||
-			uri.endsWith("mostrarNoticiaSecao")){
+			uri.endsWith("mostrarNoticiaSecao") || uri.endsWith("inserirUsuario")){
 			return true;
 		}
 		
@@ -36,14 +36,17 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 			List<Papel> papeis = user.getPapeis();
 			if(papeis != null){
 				for(Papel p : papeis){
-					if(p.getPapel().equals("Leitor") && ( uri.endsWith("lerNoticia"))){
+					if(p.getPapel().equals("Leitor") && ( uri.endsWith("lerNoticia") || uri.endsWith("/") || uri.endsWith("logout") ||
+					   uri.endsWith("inserirOferta") || uri.endsWith("formularioInserirOferta"))){
 						return true;
 					}
 					if(p.getPapel().equals("Jornalista") && ( uri.endsWith("formularioInserirNoticia") ||
-					   uri.endsWith("inserirNoticia"))){
+					   uri.endsWith("inserirNoticia") || uri.endsWith("/"))){
 						return true;
 					}
-					if(p.getPapel().equals("Editor") && ( uri.endsWith("formularioInserirJornalista")) ){
+					if(p.getPapel().equals("Editor") && ( uri.endsWith("formularioInserirJornalista") || uri.endsWith("logout") ||
+					   uri.endsWith("formularioInserirClassificado") || uri.endsWith("formularioInserirSecao") || 
+					   uri.endsWith("inserirClassificado") || uri.endsWith("listarNoticias") ) ){
 						return true;
 					}
 				}

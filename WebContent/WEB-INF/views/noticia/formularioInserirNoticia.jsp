@@ -23,7 +23,6 @@
 		</select> <br />		
 		
 		Texto: <br /><textarea name="texto" id="mensagem"></textarea><br/>
-		Data da Notícia:<br /> <input type="date" name="dataNoticia"/> <br/>
 		
 		<input type="submit" value="Enviar" /> <br />
 	</form>

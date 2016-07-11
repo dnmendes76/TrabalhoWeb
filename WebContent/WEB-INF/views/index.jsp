@@ -54,10 +54,15 @@
 				<td>${classificado.preco} </td>
 				<td>${classificado.autor.nome} </td>
 				<td>${classificado.telefone} </td>
-				<c:if test="${classificado.melhorOferta > 0.0 }">
-				<td>${classificado.melhorOferta} </td>
-				<td>${classificado.dataOferta} </td>
-				<td>${classificado.autor.nome} </td>
+				<c:if test="${classificado.melhorOferta != null }">
+				<td>${classificado.melhorOferta.preco} </td>
+				<td>${classificado.melhorOferta.dataOferta} </td>
+				<td>${classificado.melhorOferta.autorOferta.nome} </td>
+				</c:if>
+				<c:if test="${classificado.melhorOferta == null}">
+				<td> Nenhuma Oferta </td>
+				<td> NULL </td>
+				<td> NULL </td>
 				</c:if>
 			</tr>
 		</c:forEach>

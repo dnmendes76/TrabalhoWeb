@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import criptografia.Criptografia;
 import br.ufc.dao.ClassificadoDAO;
 import br.ufc.dao.NoticiaDAO;
 import br.ufc.dao.SecaoDAO;
@@ -27,7 +28,10 @@ public class RootController {
 	
 	@RequestMapping("/")
 	public String home(Model model){
-		System.out.println("aqui :)");
+		
+		Criptografia crip = new Criptografia();
+		
+//		System.out.println("aqui :) " + crip.codifica("beltrano"));
 		
 		List<Secao> secoes = sdao.listar();
 		List<Noticia> noticias = ndao.listar();

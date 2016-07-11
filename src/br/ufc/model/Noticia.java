@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity (name = "noticia")
@@ -27,6 +29,8 @@ public class Noticia {
 	private String subtitulo;
 	@NotNull
 	private String texto;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataNoticia;
 	
 	//private long id_secao;
@@ -80,8 +84,8 @@ public class Noticia {
 		return dataNoticia;
 	}
 
-	public void setDataNoticia(Date dataNoticia) {
-		this.dataNoticia = dataNoticia;
+	public void setDataNoticia() {
+		this.dataNoticia = new Date();
 	}
 
 	public Usuario getAutor() {

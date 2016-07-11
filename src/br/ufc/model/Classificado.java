@@ -1,7 +1,5 @@
 package br.ufc.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 
@@ -19,15 +18,17 @@ public class Classificado {
 	@Id
 	@Column(name = "id_classificado", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_classificado;
 	@NotNull
 	private String titulo;
 	@NotNull
 	private String texto;
 	private float preco;
 	private String telefone;
-	private float melhorOferta;
-	private Date dataOferta;
+	
+	@OneToOne(optional = true)
+	@JoinColumn(name = "id_melhorOferta", referencedColumnName = "id_oferta")
+	private Oferta melhorOferta;
 	
 	@ManyToOne(fetch = FetchType.EAGER,
 			optional = true)
@@ -36,13 +37,6 @@ public class Classificado {
 	private Usuario autor;
 
 	//  ** GET'S and SET'S **
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -76,22 +70,6 @@ public class Classificado {
 		this.telefone = telefone;
 	}
 
-	public float getMelhorOferta() {
-		return melhorOferta;
-	}
-
-	public void setMelhorOferta(float melhorOferta) {
-		this.melhorOferta = melhorOferta;
-	}
-
-	public Date getDataOferta() {
-		return dataOferta;
-	}
-
-	public void setDataOferta(Date dataOferta) {
-		this.dataOferta = dataOferta;
-	}
-
 	public Usuario getAutor() {
 		return autor;
 	}
@@ -100,6 +78,20 @@ public class Classificado {
 		this.autor = autor;
 	}
 
-	
+	public Oferta getMelhorOferta() {
+		return melhorOferta;
+	}
+
+	public void setMelhorOferta(Oferta melhorOferta) {
+		this.melhorOferta = melhorOferta;
+	}
+
+	public long getId_classificado() {
+		return id_classificado;
+	}
+
+	public void setId_classificado(long id_classificado) {
+		this.id_classificado = id_classificado;
+	}	
 	
 }

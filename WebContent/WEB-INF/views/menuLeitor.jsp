@@ -10,12 +10,24 @@
 <body>
 	<h1>Bem vindo, ${user_logado.nome}</h1>
 	
-	<h2>
-	<a href=""> Inserir comentário de notícia</a> <br>
-	<a href="logout"> SAIR </a>
-	</h2>
+	<h2> Inserir comentário nas notícias </h2> <br>
+	<table border ="1" >
+		<tr>
+			<td> Título </td>
+			<td> Subtitulo </td>
+			<td> Autor </td>
+		</tr>
+		<c:forEach var="noticia" items="${noticias}" >
+			<tr>
+				<td> <a href="lerNoticia?id_noticia=${noticia.id_noticia}" > <h3>${ noticia.titulo }</h3> </a> </td>
+				<td> ${noticia.subtitulo}</td>
+				<td> ${noticia.autor.nome}</td>
+			</tr>
+		</c:forEach>
+	</table>
 	
-	<br><br>
+	<br>
+	
 	<table border="1">
 		<h2>Classificados</h2>
 			<tr> 
@@ -52,6 +64,7 @@
 	
 	</table>
 	
+	<h2><a href="logout"> SAIR </a></h2>
 	
 </body>
 </html>

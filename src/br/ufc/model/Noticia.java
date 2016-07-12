@@ -50,8 +50,7 @@ public class Noticia {
 	private Secao secao;
 	
 	@OneToMany(mappedBy = "noticia",
-			targetEntity = Comentario.class,
-			cascade = CascadeType.ALL)
+			targetEntity = Comentario.class)
 	private List<Comentario> comentarios;
 
 	//   ** GET'S and SET'S **	

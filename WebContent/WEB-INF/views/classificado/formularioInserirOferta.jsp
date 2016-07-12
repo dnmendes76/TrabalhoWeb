@@ -10,7 +10,6 @@
 <body>
 
 	<form action="inserirOferta" method="post">
-		${classificado.id_classificado} <br/>
 		Titulo: ${classificado.titulo}  <br/>
 		Descrição: ${classificado.texto} <br/>
 		Preço: ${classificado.preco} <br/>

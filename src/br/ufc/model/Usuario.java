@@ -37,8 +37,7 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "autor",
 			targetEntity = Comentario.class,
-			fetch = FetchType.EAGER,
-			cascade = CascadeType.ALL)
+			fetch = FetchType.EAGER)
 	private List<Comentario> comentarios;
 	
 	@OneToMany(mappedBy = "autor",

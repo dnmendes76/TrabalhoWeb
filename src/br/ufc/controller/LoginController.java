@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import criptografia.Criptografia;
 import br.ufc.dao.ClassificadoDAO;
+import br.ufc.dao.NoticiaDAO;
 import br.ufc.dao.PapelDAO;
 import br.ufc.dao.UsuarioDAO;
 import br.ufc.model.Papel;
@@ -29,6 +30,9 @@ public class LoginController {
 	
 	@Autowired
 	private ClassificadoDAO cdao;
+	
+	@Autowired
+	private NoticiaDAO ndao;
 	
 	@RequestMapping("loginFormulario")
 	public String loginFormulario( Model model){
@@ -65,6 +69,7 @@ public class LoginController {
 				
 				if (papel == 1){
 					model.addAttribute("classificados", cdao.listar());
+					model.addAttribute("noticias", ndao.listar());
 					return "menuLeitor";
 				}
 				else if (papel == 2){

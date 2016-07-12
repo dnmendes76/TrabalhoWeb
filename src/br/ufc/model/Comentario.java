@@ -17,33 +17,24 @@ public class Comentario {
 	@Id
 	@Column(name = "id_comentario", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long id_comentario;
 	@NotNull
 	private String texto;
 	
 	@ManyToOne(fetch = FetchType.EAGER,
-			optional = false, 
-			cascade = CascadeType.ALL)
+			optional = false)
 	@JoinColumn ( name = "id_autor",
 			referencedColumnName = "id_usuario")
 	private Usuario autor;
 	
 	@ManyToOne(fetch = FetchType.EAGER,
-			optional = false, 
-			cascade = CascadeType.ALL)
+			optional = false)
 	@JoinColumn ( name = "id_noticia",
 			referencedColumnName = "id_noticia")
 	private Noticia noticia;
 
 	//   ** GET'S and SET'S **
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
 	public String getTexto() {
 		return texto;
 	}
@@ -67,6 +58,15 @@ public class Comentario {
 	public void setNoticia(Noticia noticia) {
 		this.noticia = noticia;
 	}
+
+	public long getId_comentario() {
+		return id_comentario;
+	}
+
+	public void setId_comentario(long id_comentario) {
+		this.id_comentario = id_comentario;
+	}
+	
 	
 	
 }

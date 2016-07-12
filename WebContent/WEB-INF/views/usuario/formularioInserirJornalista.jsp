@@ -11,12 +11,14 @@
 
 	<h1>Inserir Jornalista</h1>
 	
-	<form action="inserirUsuario" method="post">
+	<form action="inserirUsuario" method="post" enctype="multipart/form-data">
 	
 		Nome: <input type="text" name="nome"/> <br>
 		Email: <input type="text" name="email"/> <br>
 		Login: <input type="text" name="login"/> <br>
 		Senha: <input type="text" name="senha"/> <br>
+		
+		Imagem: <input type="file" name="imagem" /><br />
 		
 		<input type="hidden" name="id_papel" value="2">
 		

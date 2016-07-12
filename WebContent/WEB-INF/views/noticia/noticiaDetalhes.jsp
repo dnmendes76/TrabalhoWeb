@@ -14,14 +14,22 @@
 	<h1> ${noticia.titulo } </h1>
    	<h3> ${noticia.subtitulo } </h3>
    	<br> Data da Notícia: ${noticia.dataNoticia} <br>
-   	<h4><b>Autor da Noticia:</b> ${noticia.autor.nome }</h4>
+   	<h4><b>Autor da Noticia:</b> ${noticia.autor.nome }</h4> <img alt="${noticia.autor.nome}" src="<c:url value="/resources/images/users/${noticia.autor.id_usuario}.png"  />" />
 	${noticia.texto} <br>
 	
 	<h3>Comentários:</h3>
 	
 	<c:forEach var="comentario" items="${comentarios}" >
 		<b>${comentario.autor.nome}: </b> ${comentario.texto}  
-	</c:forEach>	
+	</c:forEach>
+	
+	<c:if test="${user_logado != null }">
+		<form action="inserirComentario" method="post">
+			Comentário: <input type="text" name="texto"/>
+			<input type="hidden" name="id_noticia" value="${noticia.id_noticia}" />
+			<input type="submit" value="Comentar" />
+		</form>
+	</c:if>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.ufc.dao.ClassificadoDAO;
+import br.ufc.dao.NoticiaDAO;
 import br.ufc.dao.OfertaDAO;
 import br.ufc.dao.UsuarioDAO;
 import br.ufc.model.Classificado;
@@ -27,6 +28,8 @@ public class ClassificadoController {
 	private UsuarioDAO udao;
 	@Autowired
 	private OfertaDAO odao;
+	@Autowired
+	private NoticiaDAO ndao;
 
 	@RequestMapping("formularioInserirClassificado")
 	public String formularioInserirClassificado(){
@@ -84,6 +87,7 @@ public class ClassificadoController {
 		c.setMelhorOferta(o);
 		this.cdao.atualizar(c);	
 		model.addAttribute("classificados", cdao.listar());
+		model.addAttribute("noticias", ndao.listar());
 		return "menuLeitor";
 	}
 

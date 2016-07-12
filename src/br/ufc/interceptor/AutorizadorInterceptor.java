@@ -37,7 +37,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 			if(papeis != null){
 				for(Papel p : papeis){
 					if(p.getPapel().equals("Leitor") && ( uri.endsWith("lerNoticia") || uri.endsWith("/") || uri.endsWith("logout") ||
-					   uri.endsWith("inserirOferta") || uri.endsWith("formularioInserirOferta"))){
+					   uri.endsWith("inserirOferta") || uri.endsWith("formularioInserirOferta") ||
+					   uri.endsWith("inserirComentario") )){
 						return true;
 					}
 					if(p.getPapel().equals("Jornalista") && ( uri.endsWith("formularioInserirNoticia")|| uri.endsWith("logout") ||

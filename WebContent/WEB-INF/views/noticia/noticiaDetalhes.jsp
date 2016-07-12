@@ -13,9 +13,9 @@
 	<h1>Seção: ${noticia.secao.titulo} </h1>
 	<h1> ${noticia.titulo } </h1>
    	<h3> ${noticia.subtitulo } </h3>
+   	<br> Data da Notícia: ${noticia.dataNoticia} <br>
+   	<h4><b>Autor da Noticia:</b> ${noticia.autor.nome }</h4>
 	${noticia.texto} <br>
-	<h4><b>Autor da Noticia:</b> ${noticia.autor.nome }</h4>
-	<br> Data da Notícia: ${noticia.dataNoticia} <br>
 	
 	<h3>Comentários:</h3>
 	

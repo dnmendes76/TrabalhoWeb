@@ -20,7 +20,7 @@
 	
 		<c:forEach var="secao" items="${ secoes }" >
 			<tr> 
-				<h2>Secão:<a href="mostrarNoticiaSecao?id_secao=${secao.id_secao}">${ secao.titulo } </a></h2> 
+				<h2>Secão: <a href="mostrarNoticiaSecao?id_secao=${secao.id_secao}">${ secao.titulo } </a></h2> 
 				<c:forEach var="noticia" items="${ noticias }" >
 					<c:set var="temp1" value="${ noticia.secao.titulo}"/>
 					<c:set var="temp2" value="${secao.titulo}"/>

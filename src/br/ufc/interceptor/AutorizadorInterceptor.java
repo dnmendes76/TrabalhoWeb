@@ -40,13 +40,14 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 					   uri.endsWith("inserirOferta") || uri.endsWith("formularioInserirOferta"))){
 						return true;
 					}
-					if(p.getPapel().equals("Jornalista") && ( uri.endsWith("formularioInserirNoticia") ||
-					   uri.endsWith("inserirNoticia") || uri.endsWith("/"))){
+					if(p.getPapel().equals("Jornalista") && ( uri.endsWith("formularioInserirNoticia")|| uri.endsWith("logout") ||
+					   uri.endsWith("inserirNoticia") || uri.endsWith("listarNoticias") )){
 						return true;
 					}
 					if(p.getPapel().equals("Editor") && ( uri.endsWith("formularioInserirJornalista") || uri.endsWith("logout") ||
 					   uri.endsWith("formularioInserirClassificado") || uri.endsWith("formularioInserirSecao") || 
-					   uri.endsWith("inserirClassificado") || uri.endsWith("listarNoticias") ) ){
+					   uri.endsWith("inserirClassificado") || uri.endsWith("listarNoticias") ||
+					   uri.endsWith("inserirSecao")) ){
 						return true;
 					}
 				}

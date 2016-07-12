@@ -68,6 +68,7 @@ public class LoginController {
 					return "menuLeitor";
 				}
 				else if (papel == 2){
+					model.addAttribute("id_papel", papel);
 					return "menuJornalista";
 				}
 				else if (papel == 3){

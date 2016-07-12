@@ -16,6 +16,7 @@ import br.ufc.dao.NoticiaDAO;
 import br.ufc.dao.SecaoDAO;
 import br.ufc.dao.UsuarioDAO;
 import br.ufc.model.Noticia;
+import br.ufc.model.Papel;
 import br.ufc.model.Secao;
 import br.ufc.model.Usuario;
 
@@ -48,7 +49,8 @@ public class NoticiaController {
 //		
 		noticia.setAutor(udao.buscar(user.getId_usuario()));
 		noticia.setSecao(sdao.buscar(id_secao));
-//		
+		noticia.setDataNoticia();
+		
 		this.ndao.inserir(noticia);
 		
 		return "noticia/noticiaInseridaOK";
@@ -67,11 +69,20 @@ public class NoticiaController {
 	}	
 	
 	@RequestMapping("listarNoticias")
-	public String listarNoticias(HttpSession session, Model model){
-		
-		Usuario user = (Usuario) session.getAttribute("user_logado");
+	public String listarNoticias(HttpSession session, Model model, Papel papel){
 
-		List<Noticia> lista = ndao.listar();
+		Usuario user = (Usuario) session.getAttribute("user_logado");
+		List<Noticia> lista;
+		
+		if(papel.getId_papel() == 2){
+			System.out.println("aqui");
+			lista = user.getNoticias();
+		}
+		else{
+			lista = ndao.listar();
+		}
+		
+		
 		model.addAttribute("noticias", lista);
 		
 		return "noticia/listarNoticias";
